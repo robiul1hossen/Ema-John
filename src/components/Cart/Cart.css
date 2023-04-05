@@ -10,3 +10,17 @@
 .cart h6 {
   font-size: 20px;
 }
+.clear-cart-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 10px auto;
+  background: #ff3030;
+  border-radius: 4px;
+  height: 48px;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 0 12px;
+}
