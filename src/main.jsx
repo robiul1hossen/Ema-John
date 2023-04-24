@@ -5,10 +5,12 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Layout/Home/Home";
 import Order from "./components/Orders/Order";
-import Inventory from "./components/Header/Inventory/Inventory";
 import Login from "./components/Login/Login";
 import Shop from "./components/Shop/Shop";
 import cartProductsLoader from "./Loaders/CartProductsLoader";
+import Inventory from "./components/Inventory/Inventory";
+import Signpu from "./components/Signpu/Signpu";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,16 +26,16 @@ const router = createBrowserRouter([
         loader: cartProductsLoader,
       },
       {
-        path: "/order-reviews",
-        element: <Inventory></Inventory>,
-      },
-      {
         path: "/inventory",
         element: <Inventory></Inventory>,
       },
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/sign-up",
+        element: <Signpu></Signpu>,
       },
     ],
   },
