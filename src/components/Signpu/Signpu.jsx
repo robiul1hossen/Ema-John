@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Signpu.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Signpu = () => {
   const [error, setError] = useState("");
+
+  const { createUser } = useContext(AuthContext);
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -14,15 +17,24 @@ const Signpu = () => {
     const confirm = form.confirm.value;
     console.log(email, password, confirm);
 
+    setError("");
     if (password !== confirm) {
-      setError("");
       setError("Password did not match.");
       return;
     } else if (password.length < 6) {
-      setError("");
       setError("Password must be 6 character or longer");
       return;
     }
+
+    createUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
   };
 
   return (
